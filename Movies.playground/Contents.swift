@@ -21,7 +21,6 @@ URLSession.shared.dataTask(with: request) { (data, response, error) in
       let movies = try decoder.decode(Response.self, from: data)
 
       print(movies.results.count)
-
     } catch {
       print("Unable to Decode Response: \(error)")
     }
@@ -33,3 +32,4 @@ URLSession.shared.dataTask(with: request) { (data, response, error) in
     }
   }
 }.resume()
+
