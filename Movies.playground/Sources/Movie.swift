@@ -1,13 +1,13 @@
 import Foundation
 
-public struct Response: Codable {
+public struct Movie: Codable {
   
   // MARK: - Properties
   
-  public var results: [Movie]
+  public var results: [MovieResponse]
 }
 
-public struct Movie: Codable {
+public struct MovieResponse: Codable {
 
   // MARK: - Properties
 
@@ -16,4 +16,3 @@ public struct Movie: Codable {
   public let overview: String
   public let releaseDate: String
 }
-

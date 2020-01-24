@@ -21,7 +21,7 @@ final public class APIClient {
 
   // MARK: - Public API
 
-  public func fetchMovies(_ completion: @escaping (Result<Response, APIClientError>) -> Void) {
+  public func fetchMovies(_ completion: @escaping (Result<Movie, APIClientError>) -> Void) {
     let url = baseUrl
     
     // Create Request
@@ -39,7 +39,7 @@ final public class APIClient {
           decoder.keyDecodingStrategy = .convertFromSnakeCase
 
           // Decode JSON Response
-          let movies = try decoder.decode(Response.self, from: data)
+          let movies = try decoder.decode(Movie.self, from: data)
 
           completion(.success(movies))
 
