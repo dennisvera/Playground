@@ -1,9 +1,28 @@
 import Foundation
 
-// Define URL
-let baseUrl = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=2631ea46e7edd7894cf3eaee7d263667&language=en-US&page=1")!
+// MARK: - Types
 
-APIClient(baseUrl: baseUrl).fetchMovies { (result) in
+enum MovieApi: String {
+  case apiKey = "2631ea46e7edd7894cf3eaee7d263667"
+  case language = "en-US"
+  case page = "1"
+}
+
+// Define URL
+
+var components = URLComponents()
+components.scheme = "https"
+components.host = "api.themoviedb.org"
+components.path = "/3/movie/now_playing"
+components.queryItems = [
+  URLQueryItem(name: "api_key", value: MovieApi.apiKey.rawValue),
+  URLQueryItem(name: "language", value: MovieApi.language.rawValue),
+  URLQueryItem(name: "page", value: MovieApi.page.rawValue)
+]
+
+let baseUrl = components.url!
+
+APIClient(baseUrl: baseUrl).fetchMovies { result in
   print(baseUrl)
   switch result {
   case .success(let movies):
@@ -14,4 +33,3 @@ APIClient(baseUrl: baseUrl).fetchMovies { (result) in
     print(error)
   }
 }
-

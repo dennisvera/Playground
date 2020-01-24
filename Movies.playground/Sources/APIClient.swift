@@ -2,6 +2,8 @@ import Foundation
 
 final public class APIClient {
 
+  // MARK: - Types
+
   public enum APIClientError: Error {
     case requestFailed
     case invalidResponse
@@ -17,10 +19,11 @@ final public class APIClient {
     self.baseUrl = baseUrl
   }
 
+  // MARK: - Public API
+
   public func fetchMovies(_ completion: @escaping (Result<Response, APIClientError>) -> Void) {
     let url = baseUrl
-    //    let url = baseUrl.appendingPathComponent("now_playing?api_key=2631ea46e7edd7894cf3eaee7d263667&language=en-US&page=1")
-
+    
     // Create Request
     let request = URLRequest(url: url)
 
