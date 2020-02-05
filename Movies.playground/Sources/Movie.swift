@@ -17,4 +17,5 @@ public struct MovieResponse: Codable {
   public let releaseDate: String
 
   // Line 1
+  // Line 2
 }
