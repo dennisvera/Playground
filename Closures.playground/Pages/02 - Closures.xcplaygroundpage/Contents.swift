@@ -30,8 +30,8 @@ printResult(+, 4, 5)
 printResult(
   {
     (a: Int, b: Int) -> Int in
-    a * b + 100
-},
+     a * b + 100
+  } ,
   3, 10
 )
 
