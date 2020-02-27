@@ -6,24 +6,24 @@ var prices = [1.50, 10.00, 4.99, 2.30, 8.19]
 
 //: `forEach` - Loops over a collection and performs an operation
 
-//:  `for loop`
+//:  `for loop style`
 for price in prices {
   print(price)
 }
 
-//: `forEach`
+//: `forEach style`
 prices.forEach { print($0) }
 
 
 //: `map` - Loops over an array, executes closure code, returns a new array
 
-//:  `for loop`
+//:  `for loop style`
 var forSalePricesArray: [Double] = []
 for price in prices {
   forSalePricesArray.append(price * 0.9)
 }
 
-//: ` map`
+//: ` map style`
 let salePrices = prices.map { $0 * 0.5 }
 let priceLabel = salePrices.map { (price) -> String in
   String(format: "%.f", price)

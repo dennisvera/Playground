@@ -15,17 +15,17 @@ let copyLines = { (offense: String, repeatCount: Int) -> Void in
 
 // TODO: Write solution here
 
-//: ` No parameter types`
+//: ` No parameter types solution`
 let copyLines_2: (String, Int) -> Void = { offense, repeatCount -> Void in
   print( String(repeating: "I must not \(offense). ", count: repeatCount) )
 }
 
-//: `No parameter or return types`
+//: `No parameter or return types solution`
 let copyLines_3: (String, Int) -> Void = { offense, repeatCount in
   print( String(repeating: "I must not \(offense). ", count: repeatCount) )
 }
 
-//: ` No parameter names`
+//: ` No parameter names solution`
 let copyLines_4: (String, Int) -> Void = {
   print( String(repeating: "I must not \($0). ", count: $1) )
 }

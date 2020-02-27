@@ -1,6 +1,3 @@
-//: [⇐ Previous: 07 - compactMap & flatMap](@previous)
-//: ## Episode 08: Closures & Collections
-
 // --------------------------------------
 class Student {
   let name: String
@@ -38,16 +35,29 @@ let students = [chris, sam, catie, andrea]
  Rewrite one of them using `forEach` and the other with `map`
 */
 
+//: `forLoop solution` for problem 1
 for student in students {
   student.earnExtraCredit()
 }
 
+//: `forEach solution` for problem 1
+students.forEach { student in
+  student.earnExtraCredit()
+}
+
+//: `forLoop solution` for problem 2
 var classLibraryBooks: [[String]] = []
 for student in students {
   classLibraryBooks.append(student.libraryBooks)
 }
 
-
+//: `map solutions` for problem 2
+let classLibraryBooks_2 = students.map { (student) -> [String] in
+  student.libraryBooks
+}
+let classLibraryBooks_3 = students.map { $0.libraryBooks }
+print(classLibraryBooks_2)
+print(classLibraryBooks_3)
 
 
 /*:
@@ -56,6 +66,7 @@ for student in students {
  It will filter out the `nil` values for you!
 */
 
+//: `forLoop solution`
 var classPets: [String] = []
 for student in students {
   if let pet = student.pet {
@@ -63,6 +74,15 @@ for student in students {
   }
 }
 
+//: `compactMap solutions`
+let classPets_2 = students.compactMap { (student) in
+  student.pet
+}
+let classPets_3 = students.compactMap { $0.pet }
+
+print(classPets)
+print(classPets_2)
+print(classPets_3)
 
 
 /*:
@@ -71,6 +91,11 @@ for student in students {
  Try using flatMap to flatten all of the books into a single String array.
 */
 
+//: `flatMap solutions`
+let libraryBooks = students.flatMap { (student) -> [String] in
+  student.libraryBooks
+}
+let libraryBooks_2 = students.flatMap { $0.libraryBooks }
 
-
-//: [⇒ Next: 09 - filter, reduce, & sort](@next)
+print(libraryBooks)
+print(libraryBooks_2)
