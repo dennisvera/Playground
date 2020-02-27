@@ -1,6 +1,3 @@
-//: [⇐ Previous: 03 - Challenge - Closures](@previous)
-//: ## Episode 04: Closure Syntaxes
-
 // --------------------------------------
 typealias Operate = (Int, Int) -> Int
 // --------------------------------------
@@ -41,4 +38,3 @@ printResult(10, 3, { ($0 * $1 + 10) })
 // Trailing Closure Syntax
 printResult(10, 3) { $0 * $1 + 10 }
 
-//: [⇒ Next: 05 - Challenge - Closure Syntaxes](@next)

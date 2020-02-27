@@ -1,6 +1,3 @@
-//: [⇐ Previous: 04 - Closure Syntax](@previous)
-//: ## Episode 05: Challenge - Closure Syntax
-
 /*:
  ## Challenge 1
  Rewrite the long closure with the following syntax:
@@ -18,8 +15,22 @@ let copyLines = { (offense: String, repeatCount: Int) -> Void in
 
 // TODO: Write solution here
 
+// No parameter types
+let copyLines_2: (String, Int) -> Void = { offense, repeatCount -> Void in
+  print( String(repeating: "I must not \(offense). ", count: repeatCount) )
+}
 
+// No parameter or return types
+let copyLines_3: (String, Int) -> Void = { offense, repeatCount in
+  print( String(repeating: "I must not \(offense). ", count: repeatCount) )
+}
 
+// No parameter names
+let copyLines_4: (String, Int) -> Void = {
+  print( String(repeating: "I must not \($0). ", count: $1) )
+}
 
-
-//: [⇒ Next: 06 - forEach and map](@next)
+copyLines("eat donuts at night", 2)
+copyLines_2("eat donuts at night", 2)
+copyLines_3("eat donuts at night", 2)
+copyLines_4("eat donuts at night", 2)
