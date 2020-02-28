@@ -1,6 +1,3 @@
-//: [⇐ Previous: 07 - Challenge - forEach and map](@previous)
-//: ## Episode 08: filter, reduce, and sort
-
 // --------------------------------------
 let arrayOfDwarfArrays = [
   ["Sleepy", "Grumpy", "Doc", "Bashful", "Sneezy"],
@@ -20,8 +17,9 @@ let dwarvesAfterM = arrayOfDwarfArrays.flatMap { dwarves -> [String] in
 }
 // --------------------------------------
 
-
-
+let dwarvesAfterM_2 = arrayOfDwarfArrays.flatMap { dwarves -> [String] in
+  dwarves.filter { $0 > "M" }
+}
 
 
 //: reduce
@@ -68,6 +66,3 @@ var names = ["Zeus", "Poseidon", "Ares", "Demeter"]
 
 
 
-
-
-//: [⇒ Next: 09 - Challenge - filter, reduce, and sort](@next)
