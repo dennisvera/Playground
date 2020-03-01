@@ -36,9 +36,9 @@ let students = [chris, sam, catie, andrea]
 */
 
 //: `forLoop solution` for problem 1
-for student in students {
-  student.earnExtraCredit()
-}
+//for student in students {
+//  student.earnExtraCredit()
+//}
 
 //: `forEach solution` for problem 1
 students.forEach { student in
