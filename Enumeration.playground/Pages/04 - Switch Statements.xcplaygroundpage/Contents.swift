@@ -1,4 +1,3 @@
-//: [⇐ Previous: 03 - Challenge - Enumerations](@previous)
 //: ## Episode 04: Switch Statements
 
 enum Month: Int {
@@ -16,6 +15,17 @@ enum Season: String, CaseIterable {
   case autumn
 }
 
+func getSeason(for month: Month) -> Season {
+  switch month {
+  case .december, .january, .february:
+    return Season.winter
+  case .march, .april, .may:
+    return Season.spring
+  case .june, .july, .august:
+    return Season.summer
+  case .september, .october, .november:
+    return Season.autumn
+  }
+}
 
-
-//: [⇒ Next: 05 - More Switch Statements](@next)
+getSeason(for: .august)
