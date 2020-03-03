@@ -1,6 +1,3 @@
-//: [⇐ Previous: 04 - Lazy Properties](@previous)
-//: ## Episode 05: Challenge - Properties
-
 /*:
  ## Challenge 1
  Create a struct named `Temperature` with properties for degrees in both Celsius and Fahrenheit, as `Double`s.
