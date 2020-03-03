@@ -1,4 +1,3 @@
-//: [⇐ Previous: 02 - Stored Properties](@previous)
 //: ## Episode 03: Computed Properties
 
 
@@ -47,4 +46,3 @@ wizard.lastName = "Kenobi"
 wizard.firstName = "Merlin Rincewind"
 
 wizard.fullName = "Severus Wenderlich"
-

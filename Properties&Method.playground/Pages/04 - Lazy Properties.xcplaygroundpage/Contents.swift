@@ -39,6 +39,13 @@ struct Wizard {
       lastName = nameStrings.last!
     }
   }
+
+  lazy var magicalCreature = summonMagicalCreature(summoner: fullName)
+
+  init(firstName: String, lastName: String) {
+    self.firstName = firstName
+    self.lastName = lastName
+  }
 }
 
 var wizard = Wizard(firstName: "Gandalf", lastName: "Greyjoy")
@@ -47,8 +54,9 @@ wizard.lastName = "Kenobi"
 wizard.firstName = "Merlin Rincewind"
 wizard.fullName = "Severus Wenderlich"
 
+wizard.magicalCreature
 
+print(wizard.magicalCreature)
+wizard.fullName = "Qui-Gon Crayskull"
+print(wizard.magicalCreature)
 
-
-
-//: [⇒ Next: 05 - Challenge: Properties](@next)
