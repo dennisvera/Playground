@@ -7,7 +7,24 @@
 
 // TODO: Write solution here
 
+struct Temperature {
+  // stored property
+  var degreesF: Double {
+    didSet {
+      if degreesF > 100 {
+        print("It's \(degreesF) degrees Fahrenheit. I melted!")
+      }
+    }
+  }
+  // computed property
+  var degreesC: Double {
+    get { return (degreesF - 32) / 1.8}
+    set { degreesF = newValue * 1.8 + 32 }
+  }
+}
 
+var degrees = Temperature(degreesF: 32)
+degrees.degreesC = 75
 
 /*:
  ## Challenge 2
@@ -33,27 +50,43 @@ enum Month: Int {
   case january = 1, february, march, april, may, june, july, august, september, october, november, december
   
   // TODO: Write solution here
-}
 
+  var monthsUntilJingleBells: Int {
+    Month.december.rawValue - rawValue
+  }
 
-// --------------------------------------
-func monthsUntilJingleBells(from month: Month) -> Int {
-  Month.december.rawValue - month.rawValue
-}
-
-func season(for month: Month) -> Season {
-  switch month {
-  case .december, .january, .february:
-    return .winter
-  case .march, .april, .may:
-    return .spring
-  case .june, .july, .august:
-    return .summer
-  case .september, .october, .november:
-    return .autumn
+  var season: Season {
+    switch self {
+    case .december, .january, .february:
+      return .winter
+    case .march, .april, .may:
+      return .spring
+    case .june, .july, .august:
+      return .summer
+    case .september, .october, .november:
+      return .autumn
+    }
   }
 }
+
+Month.august.monthsUntilJingleBells
+Month.august.season
+
 // --------------------------------------
-
-//: [⇒ Next: 06 - Methods](@next)
-
+//func monthsUntilJingleBells(from month: Month) -> Int {
+//  Month.december.rawValue - month.rawValue
+//}
+//
+//func season(for month: Month) -> Season {
+//  switch month {
+//  case .december, .january, .february:
+//    return .winter
+//  case .march, .april, .may:
+//    return .spring
+//  case .june, .july, .august:
+//    return .summer
+//  case .september, .october, .november:
+//    return .autumn
+//  }
+//}
+// --------------------------------------
