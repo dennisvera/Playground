@@ -1,7 +1,3 @@
-//: [⇐ Previous: 06 - Methods](@previous)
-//: ## Episode 07: Challenge - Methods
-
-//: [Previous](@previous)
 /*:
  # Challenge Time - Methods!
  
@@ -18,19 +14,29 @@
 struct Student {
   let firstName: String
   let lastName: String
-  let grade: Int
+  var grade: Int
 }
 
 struct Classroom {
   let className: String
-  let students: [Student]
+  var students: [Student]
   
   func getHighestGrade() -> Int? {
     return students.map { $0.grade } .max()
   }
+
+  mutating func curveGrades() {
+    guard let highestGrade = getHighestGrade() else { return }
+
+    students = students.map { [curveAmount = highestGrade - 100] student in
+      var student = student
+      student.grade += curveAmount
+      return student
+    }.sorted { $0.grade > $1.grade }
+  }
 }
 
-let classroom = Classroom(
+var classroom = Classroom(
   className: "Usable Clock Design",
   students: [
     Student(firstName: "Chris", lastName: "Belanger", grade: 70),
@@ -40,10 +46,7 @@ let classroom = Classroom(
 )
 
 classroom.getHighestGrade()
-
-
-
-//: [Next](@next)
-
+classroom.curveGrades()
+classroom.students
 
 
