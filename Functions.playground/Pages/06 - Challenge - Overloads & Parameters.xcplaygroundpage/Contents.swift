@@ -1,6 +1,3 @@
-//: [⇐ Previous: 05 - Advanced Parameters](@previous)
-//: ## Episode 06 - Challenge - Overloads & Parameters
-
 /*:
  ## Challenge 1
  Write two possible overloads for the function below. You can use...
@@ -16,24 +13,39 @@ func multiply(number: Int, by multiplier: Int) -> Int {
 
 // TODO: Write solution here
 
+func multiply(number: Int, by multiplier: Int, divider: Int) -> Int {
+  return number * multiplier / divider
+}
+
+func multiply(number1: Int, number2: Int) -> Int {
+  return number1 * number2
+}
+
+multiply(number: 30, by: 4)
+multiply(number: 30, by: 4, divider: 4)
+multiply(number1: 30, number2: 4)
+
 /*:
  ## Challenge 2
  Eliminate the overloads below by using a default value for a parameter.
 */
 
 // --------------------------------------
-func printMultipleOf(multiplier: Int, number: Int) {
-  print("\(multiplier) * \(number)  = \(multiplier * number)")
-}
-
-func printMultipleOf(multiplier: Int) {
-  print("\(multiplier) * 1)  = \(multiplier * 1)")
-}
+//func printMultipleOf(multiplier: Int, number: Int) {
+//  print("\(multiplier) * \(number)  = \(multiplier * number)")
+//}
+//
+//func printMultipleOf(multiplier: Int) {
+//  print("\(multiplier) * 1)  = \(multiplier * 1)")
+//}
 // --------------------------------------
 
 
 // TODO: Write solution here
 
+func printMultipleOf(multiplier: Int, number: Int = 1) {
+  print("\(multiplier) * \(number)  = \(multiplier * number)")
+}
 
 // --------------------------------------
 printMultipleOf(multiplier: 7)
@@ -49,11 +61,11 @@ printMultipleOf(multiplier: 11, number: 4)
 
 var score = 50
 
-func update(score: Int, withPoints points: Int) {
+func update(score: inout Int, withPoints points: Int) {
   score += points
 }
 
 
-
+update(score: &score, withPoints: 40)
 
 //: [⇒ Next: 07 - Functions as Parameters](@next)
