@@ -48,5 +48,3 @@ var classroom = Classroom(
 classroom.getHighestGrade()
 classroom.curveGrades()
 classroom.students
-
-
