@@ -26,6 +26,48 @@ Create one subclass of your choice of `WildAnimal` or `Pet`. It should do at lea
 
 // TODO: Write solution here
 
+class Animal {
+  func speak() {
+  }
+}
+
+class WildAnimal: Animal {
+  let isPoisonous: Bool
+
+  init(isPoisonous: Bool) {
+    self.isPoisonous = isPoisonous
+  }
+}
+
+class Pet: Animal {
+  let name: String
+
+  init(name: String) {
+    self.name = name
+  }
+
+  func play()  {
+    print("It's time to play")
+  }
+
+  override func speak() {
+    print("Bak Bak Bak")
+  }
+}
+
+class Hippopotamus: WildAnimal {
+  var size: String {
+    return "The hippopotamus is the type genus of the family Hippopotamidae."
+  }
+
+  override func speak() {
+    print("Hippos differ from all other large land mammals, being of semiaquatic habits, and spending their days in lakes and rivers.")
+  }
+  func etymology() {
+
+  }
+}
+
 
 
 /*:
