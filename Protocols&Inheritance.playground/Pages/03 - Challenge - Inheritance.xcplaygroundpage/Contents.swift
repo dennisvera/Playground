@@ -27,8 +27,7 @@ Create one subclass of your choice of `WildAnimal` or `Pet`. It should do at lea
 // TODO: Write solution here
 
 class Animal {
-  func speak() {
-  }
+  func speak() { }
 }
 
 class WildAnimal: Animal {
@@ -47,24 +46,17 @@ class Pet: Animal {
   }
 
   func play()  {
-    print("It's time to play")
+    print("It's play time...")
   }
 
   override func speak() {
-    print("Bak Bak Bak")
+    print("Hi! I am pet and my name is \(name), and my pet sound goes Bak Bak Bak")
   }
 }
 
-class Hippopotamus: WildAnimal {
-  var size: String {
-    return "The hippopotamus is the type genus of the family Hippopotamidae."
-  }
-
+class Hippopotamus: Pet {
   override func speak() {
     print("Hippos differ from all other large land mammals, being of semiaquatic habits, and spending their days in lakes and rivers.")
-  }
-  func etymology() {
-
   }
 }
 
@@ -78,10 +70,35 @@ class Hippopotamus: WildAnimal {
 - Call the function with each of your instances using a loop or whatever other method you'd like!
 */
 
+let animal = Animal()
+let snake = WildAnimal(isPoisonous: true)
+let rabbit = WildAnimal(isPoisonous: false)
+let linguini = Pet(name: "Linquini")
+let hipopopo = Hippopotamus(name: "Hippi")
 
+let animals = [animal, snake, rabbit, linguini, hipopopo]
 
-// TODO: Write solution here
+func ourPlanet(forAnimal animal: Animal) {
+  if let animal = animal as? WildAnimal {
+    print(animal.isPoisonous ? "do not step on me, I will bite you!" : "It's not poisonous at all!")
+    return
+  }
 
+  if let pet = animal as? Pet {
+    switch pet {
+    case let hipo as Hippopotamus:
+      print("Please take this monkey off my back!. I am \(hipo.name) the hungry hippo!")
+      hipo.speak()
+      return
+    default:
+      print("I am a pet and my name is \(pet.name)!")
+      pet.speak()
+      pet.play()
+      return
+    }
+  }
 
+  print("It's Animal! you know, the Muppet!")
+}
 
-//: [⇒ Next: 04 - Initializers](@next)
+animals.forEach(ourPlanet(forAnimal:))
