@@ -9,6 +9,25 @@ protocol Animal {
   func speak()
 }
 
+protocol Aloof {
+  var name: String { get }
+}
+
+extension Aloof {
+  var greeting: String {
+    "My name is \(name). Please leave me alone."
+  }
+}
+
+protocol AloofAnimal: Aloof, Animal { }
+
+extension AloofAnimal {
+
+  func speak() {
+    print("\(greeting). I must look at this wall.")
+  }
+}
+
 class Dog: Animal {
   let name: String
   var tricksLearnedCount: Int
@@ -27,15 +46,17 @@ class Dog: Animal {
   }
 }
 
-class Cat: Animal {
+class Cat {
   let name: String
   
   required init(name: String) {
     self.name = name
   }
-  
+}
+
+extension Cat: AloofAnimal {
   func speak() {
-    print("My name is \(name). Please leave me alone. I must look at this wall.")
+    print(greeting + " Meoow!")
   }
 }
 
@@ -45,6 +66,24 @@ for animal in animals {
 }
 
 
+//: - Extensions
 
+extension Int {
+  var isEven: Bool {
+    self % 2 == 0
+  }
 
-//: [⇒ Next: 08 - Challenge - Protocols](@next)
+  var isOdd: Bool {
+    (self + 1) % 2 == 0
+  }
+}
+
+5.isEven
+5.isOdd
+
+extension Numeric {
+  var squared: Self { self * self }
+}
+
+5.squared
+5.5.squared
